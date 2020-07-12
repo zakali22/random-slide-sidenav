@@ -7,7 +7,7 @@ const option1MenuIcon = document.querySelector('.option1-menu-icon')
 // Nav or main slide control - depending on option provided
 function slideControl(option){
     console.log(option)
-    let menuIconEvent = option === 1 ? option1MenuIcon : menuIcon
+    let menuIconEvent = (option === 1 ? option1MenuIcon : menuIcon)
     if(option === 1){
         body.classList.add('option1')
         mainContent.classList.add('option1')
@@ -22,14 +22,15 @@ function slideControl(option){
     menuIconEvent.addEventListener('click', (event) => {
         event.preventDefault();
         switch(option){
-            case 2: 
+            case 2:
                 toggleOpenClass(mainContent)
                 toggleOpenClass(navContent)
-                return;
+                break;
             default: 
                 toggleOpenClass(mainContent)
         }
-    
+        
+        console.log(option)
         changeMenuIcon(option)
     })
 }

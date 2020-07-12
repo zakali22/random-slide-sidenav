@@ -23,14 +23,6 @@ body {
             left: auto;
         }
     }
-    
-    &.option2 {
-    
-    }
-    
-    &.option3 {
-        
-    }
 }
 
 h1 {
@@ -40,8 +32,15 @@ h1 {
 }
 
 button {
-    .primary-btn {
+    cursor: pointer;
+    padding: 1.6rem 3.2rem;
+    color: white;
+    font-size: 1.6rem;
+    border-radius: 3px;
+    &.primary-btn {
         background: #00b98d;
+        border: 1px solid #00b98d;
+        font-family: 'IBM Plex Mono', monospace;
     }
 }
 
@@ -61,7 +60,7 @@ nav {
     flex-direction: column;
     justify-content: center;
     transition: left .5s ease-in-out;
-    
+
     &.option2 {
         left: -($nav-width);
         &.open {
@@ -110,6 +109,9 @@ main {
     cursor: pointer;
     display: flex;
     align-items: flex-end;
+    position: fixed;
+    top: 30px;
+    left: 30px;
     span {
         line-height: 1;
         margin-left: 1rem;
@@ -130,3 +132,51 @@ main {
         width: calc(100% - 260px);
     }
 }
+
+.content {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__container {
+        display: flex;
+        max-width: 1000px;
+        align-items: center;
+        &:hover {
+            .content__left img {
+                box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.2);
+            }
+        }
+    }
+    &__right, &__left {
+        width: 350px; // Exact height of the images on the left
+        flex: 1;
+    }
+    &__left {
+        height: 475px;
+        position: relative;
+        cursor: pointer;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform .3s ease-out;
+            &:first-of-type {
+                z-index: 1;
+            }
+        }
+    }
+    &__right {
+        margin-left: 60px;
+        p {
+            margin: 20px 0;
+        }
+    }
+}
+
+// Keyframes
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
